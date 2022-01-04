@@ -1,7 +1,6 @@
 package br.com.alura.java.oi.teste;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -13,19 +12,22 @@ public class TesteLeitura2 {
 
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
-            System.out.println(linha);
+//            System.out.println(linha);
 
             Scanner linhaScanner = new Scanner(linha);
             linhaScanner.useLocale(Locale.US);
             linhaScanner.useDelimiter(",");
 
-            String valor1 = linhaScanner.next();
-            Integer valor2 = linhaScanner.nextInt();
-            Integer valor3 = linhaScanner.nextInt();
-            String valor4 = linhaScanner.next();
-            Double valor5 = linhaScanner.nextDouble();
+            String tipoConta = linhaScanner.next();
+            Integer agencia = linhaScanner.nextInt();
+            Integer numero = linhaScanner.nextInt();
+            String titular = linhaScanner.next();
+            Double saldo = linhaScanner.nextDouble();
 
-            System.out.println(valor1 + valor2 + valor3 + valor4 + valor5);
+
+            String valorFormatado = String.format("%s - %s-%s, %s: %s",
+                    tipoConta, agencia, numero, titular, saldo);
+            System.out.println(valorFormatado);
 
             linhaScanner.close();
 
